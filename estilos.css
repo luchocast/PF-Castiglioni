@@ -74,6 +74,10 @@
   box-shadow: 0.2;
 }
 
+.main{
+  display: flex;
+}
+
 .btn {
   width: 144px;
   height: 50px;
@@ -83,9 +87,8 @@
   font-size: 19px;
   text-align: center;
   background: rgb(186, 209, 224);
-  position: absolute;
-  top: 290px;
-  left: 36%;
+  margin-top: 508px;
+  margin-left: 600px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
@@ -163,11 +166,11 @@
 }
 
 .img {
-  background: url("../media/principal.png");
+  background: url("./media/principal.png");
   background-position: center center;
   background-size: cover;
   margin-top: 135px;
-  margin-left: 920px;
+  margin-left: 220px;
   border-radius: 10px;
 }
 
@@ -370,4 +373,4 @@
 .navbar:hover {
   transform: scale(1.02);
   transition: all 2s;
-}/*# sourceMappingURL=estilos.css.map */*/
+}/*# sourceMappingURL=estilos.css.map */
