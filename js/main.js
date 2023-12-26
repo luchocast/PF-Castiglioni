@@ -42,3 +42,6 @@ let validarEdad = () => {
 // Llamando a las funciones para obtener el nombre y la edad del usuario
 let nombre = validarNombre();
 let edad = validarEdad();
+
+console.log("El nombre ingresado es: ", nombre);
+console.log("La eda ingresada es: ", edad);
