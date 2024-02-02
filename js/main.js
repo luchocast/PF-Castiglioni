@@ -1,53 +1,36 @@
-// Función para validar el nombre
-let validarNombre = () => {
-    let nombre = prompt("Por favor ingresa tu nombre");
-    // Uso metodo trim
-    nombre = nombre.trim();
-    // Uso expresion regular para que haya mas de un digito
-    let regExp = /\d/;
-    // Uso metodo test para verificar que cumpla
-    let tieneNumeros = regExp.test(nombre);
+// Uso RegExp para validar el formato del email
+let emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Funcion para validar el email
+let validarEmail = () => {
+    let emailInput = document.getElementById("emailInput");
+    let enviarBtn = document.getElementById("enviarBtn");
+    let emailError = document.getElementById("emailError"); 
+
+    emailInput.addEventListener("input", () => {
+        // Uso .trim para limpiar la variable
+        let email = emailInput.value.trim();
+
+        // Valido usando operador ternario y lógico (AND, OR)
+        emailError.textContent = emailRegExp.test(email) ? "" : "El formato del email no es válido";
+        enviarBtn.disabled = !emailRegExp.test(email);
+    });
+
+    enviarBtn.addEventListener("click", () => {
+        let email = emailInput.value.trim();
     
-    while (nombre === "" || tieneNumeros) {
-        if (nombre === "") {
-            alert("Nombre no ingresado");
-        } else {
-            alert("El nombre no deberia contener números");
-        }
-        nombre = prompt("Por favor ingresa tu nombre correctamente y sin números");
-        nombre = nombre.trim();
-        tieneNumeros = regExp.test(nombre);
-    }
-
-    return nombre;
+        // Uso operador ternario para verificar el formato del email
+        let isValidEmail = emailRegExp.test(email);
+    
+        // Almaceno en localStorage si el formato es válido (tambien uso operadores avanzados para simplificar la estructura condicional)
+        isValidEmail
+            ? (localStorage.setItem("email", email), console.log("El email ingresado es: ", email))
+            : (emailError.textContent = "El formato del email no es válido");
+    });
 };
 
-
-// Función para validar la edad
-let validarEdad = () => {
-    let edad = parseInt(prompt("Por favor ingresa tu edad"));
-
-    while (isNaN(edad) || edad < 18) {
-        if (edad < 18) {
-            alert("Debes ser mayor de 18 años");
-        } else {
-            alert("Edad no ingresada correctamente (solo números)");
-        }
-        edad = parseInt(prompt("Por favor ingresa tu edad correctamente (solo números) y debe ser mayor de 18 años"));
-    }
-
-    return edad;
-};
-
-// Llamando a las funciones para obtener el nombre y la edad del usuario
-let nombre = validarNombre();
-let edad = validarEdad();
-
-console.log("El nombre ingresado es: ", nombre);
-console.log("La eda ingresada es: ", edad);
-
-
-
+// Llamo a la función para validar el email
+validarEmail();
 
 
 
