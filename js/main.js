@@ -84,3 +84,44 @@ const consultoriaEncontrada= consultorias.some((item) => item.nombre==='Redes So
 
 // Output
 console.log("Consultoría 'Redes Sociales' encontrada:", consultoriaEncontrada);
+
+
+
+
+
+//Hago solicitud con Fetch y promesas
+// Me aseguro que se ejecute después de que se haya cargado el DOM
+
+document.addEventListener('DOMContentLoaded', function () {
+    const fetchButton = document.getElementById('fetchButton');
+    
+    fetchButton.addEventListener('click', function () {
+        fetchData();
+    });
+
+    function fetchData() {
+        fetch('data.json')
+            .then(response => {
+
+                if (!response.ok) {
+                    throw new Error('Error');
+                }
+                return response.json(); // Convierto en formato JSON
+            })
+
+            .then(data => {
+                console.log(data); 
+            })
+            
+            .catch(error => {
+
+                Swal.fire({
+                    title: "Error",
+                    text: "Ha ocurrido un error",
+                    icon: "error"
+                  }); //Aplico libreria Sweet Alert
+
+                console.error('Hubo un problema', error);
+            });
+    }
+});
