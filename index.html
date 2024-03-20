@@ -12,12 +12,10 @@
     <link href="estilos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Inicio</title>
-    <script src="js/main.js" lang="javascript" type="text/javascript"></script>
 </head>
 
 <body>
     <div class="fondo"> 
-
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-4 justify-content-center">
                 <div class="container-fluid">
@@ -53,21 +51,49 @@
             </nav>
           </div>
 
-      <div class="main">
+      <main class="main">
 
           <h1 class="titulo m-0 p-0">Unite al <br>Newsletter</h1>
           <p class="p1">Unite a +500 amantes <br>del Desarrollo personal <br>recibiendo todos los <br>domingos mi newsletter.</p>
           <input type="email" id="emailInput" placeholder="Tu Mail..." class="placeh">
-        <button id="enviarBtn" class="btn draw-border">Enviar</button>
-        <button id="emailError" class="btn draw-border">Error</button>
-        <button id="fetchButton">Obtener Datos JSON</button>
-        <img src="./media/principal.png" class="img imgo" alt="Hombre en un jardín">
-          <img src="./media/principal.png" class="img imgo" alt="Hombre en un jardin">
+          <button id="enviarBtn" class="btn draw-border">Enviar</button>
+          <button id="emailError" class="btn draw-border">Error</button>
+          <button id="fetchButton" class="btn draw-border">Obtener Datos JSON</button>
+          <img src="./media/principal.png" class="img imgo" alt="Hombre en un jardín">
         
-       </div>
-  </div>
+          
+      </main>
 
+      <div class="productos container-fluid">
+        <div class="row">
+            <!-- cartas -->
+            <div class="col-md-6 p-5" style="background-color: none;">
+                <div class="card" style="box-shadow: 10px 5px 5px #a49d85;">
+                    <img class="card-img-top" src="../media/product02.jpg" alt="Card image">
+                    <div class="card-body" style="background-color: #d3c282">
+                      <h4 class="card-title">Producto "Habitos"</h4>
+                      <p class="card-text">Un metodo innovador para aplicar habitos. Que te brinda las herramientas necesarias para desarrollar hábitos positivos. Con seguimiento personalizado, recordatorios y estadísticas de progreso, te ayudamos a construir una rutina efectiva.<a href="#" class="btn btn-danger">Saber mas</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 p-5" style="background-color: none">
+                <div class="card" style="box-shadow: 10px 5px 5px #a49d85;">
+                    <img class="card-img-top" src="../media/product02.jpg" alt="Card image">
+                    <div class="card-body" style="background-color: #d3c282">
+                      <h4 class="card-title">Producto "Disciplina"</h4>
+                      <p class="card-text">Este sistema de disciplina te capacita para tomar el control de tu vida. Con recordatorios personalizados, seguimiento de metas y consejos diarios, lograrás la autodisciplina necesaria para alcanzar el éxito.
+                      </p>
+                      <a href="#" class="btn btn-danger">Saber mas</a>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  
   <div class="imageno"></div>
+
+
 
   <footer class="cara2">
     <h2>Mis redes</h2>
@@ -83,5 +109,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="js/main.js" lang="javascript" type="text/javascript"></script>
 </body>
 </html>

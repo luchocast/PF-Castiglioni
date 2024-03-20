@@ -1,33 +1,33 @@
-// Uso RegExp para validar el formato del email
-let emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Expresión regular para validar el formato del email
+const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Funcion para validar el email
-let validarEmail = () => {
-    let emailInput = document.getElementById("emailInput");
-    let enviarBtn = document.getElementById("enviarBtn");
-    let emailError = document.getElementById("emailError"); 
+// Función para validar el email
+const validarEmail = () => {
+    const emailInput = document.getElementById("emailInput");
+    const enviarBtn = document.getElementById("enviarBtn");
+    const emailError = document.getElementById("emailError"); 
+
+    const validarFormatoEmail = (email) => {
+        const isValidEmail = emailRegExp.test(email);
+        emailError.textContent = isValidEmail ? "" : "El formato del email no es válido";
+        enviarBtn.disabled = !isValidEmail;
+        return isValidEmail;
+    };
 
     emailInput.addEventListener("input", () => {
-        // Uso .trim para limpiar la variable
-        let email = emailInput.value.trim();
-
-        // Valido usando operador ternario y lógico (AND, OR)
-        emailError.textContent = emailRegExp.test(email) ? "" : "El formato del email no es válido";
-        enviarBtn.disabled = !emailRegExp.test(email);
+        const email = emailInput.value.trim();
+        validarFormatoEmail(email);
     });
 
     enviarBtn.addEventListener("click", () => {
-        let email = emailInput.value.trim();
-    
-        // Uso operador ternario para verificar el formato del email
-        let isValidEmail = emailRegExp.test(email);
-    
-        // Almaceno en localStorage si el formato es válido (tambien uso operadores avanzados para simplificar la estructura condicional)
-        isValidEmail
-            ? (localStorage.setItem("email", email), console.log("El email ingresado es: ", email))
-            : (emailError.textContent = "El formato del email no es válido");
+        const email = emailInput.value.trim();
+        if (validarFormatoEmail(email)) {
+            localStorage.setItem("email", email);
+            console.log("El email ingresado es:", email);
+        }
     });
 };
+
 
 // Llamo a la función para validar el email
 validarEmail();
@@ -59,9 +59,6 @@ const consultorias = [
 
 //consultorias.splice()
 
-
-
-
 // Itero sobre el Array de cursos
 // Creo Variable que guarde la HOF (no hace falta return, ya que no hay {})
 
@@ -74,13 +71,10 @@ if (cursoEncontrado) {
     console.log("Curso no encontrado");
 }
 
-
-
 // Itero sobre el Array de consultoria
 // Creo Variable que guarde la HOF
 
 const consultoriaEncontrada= consultorias.some((item) => item.nombre==='Redes Sociales');
-
 
 // Output
 console.log("Consultoría 'Redes Sociales' encontrada:", consultoriaEncontrada);
@@ -89,39 +83,33 @@ console.log("Consultoría 'Redes Sociales' encontrada:", consultoriaEncontrada);
 
 
 
-//Hago solicitud con Fetch y promesas
-// Me aseguro que se ejecute después de que se haya cargado el DOM
+// Función para realizar la solicitud Fetch
+const fetchData = () => {
+    fetch('data.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data); 
+        })
+        .catch(error => {
+            Swal.fire({
+                title: "Error",
+                text: "Ha ocurrido un error",
+                icon: "error"
+            });
+            console.error('Hubo un problema', error);
+        });
+};
 
-document.addEventListener('DOMContentLoaded', function () {
+// Asegurarse de que se ejecute después de que se haya cargado el DOM
+document.addEventListener('DOMContentLoaded', () => {
     const fetchButton = document.getElementById('fetchButton');
     
-    fetchButton.addEventListener('click', function () {
+    fetchButton.addEventListener('click', () => {
         fetchData();
     });
-
-    function fetchData() {
-        fetch('data.json')
-            .then(response => {
-
-                if (!response.ok) {
-                    throw new Error('Error');
-                }
-                return response.json(); // Convierto en formato JSON
-            })
-
-            .then(data => {
-                console.log(data); 
-            })
-            
-            .catch(error => {
-
-                Swal.fire({
-                    title: "Error",
-                    text: "Ha ocurrido un error",
-                    icon: "error"
-                  }); //Aplico libreria Sweet Alert
-
-                console.error('Hubo un problema', error);
-            });
-    }
 });

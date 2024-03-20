@@ -79,6 +79,15 @@
   display: flex;
 }
 
+#emailError {
+  margin-left: 20px;
+  border-color: red;
+}
+
+#fetchButton {
+  margin-left: 20px;
+}
+
 .btn {
   width: 144px;
   height: 50px;
@@ -199,7 +208,7 @@
   background-position: center center;
   background-size: cover;
   margin-top: 135px;
-  margin-left: 200px;
+  margin-left: 100px;
   border-radius: 10px;
 }
 
